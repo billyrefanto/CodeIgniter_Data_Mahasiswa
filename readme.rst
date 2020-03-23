@@ -11,6 +11,14 @@ you creatively focus on your project by minimizing the amount of code needed
 for a given task.
 
 *******************
+Cara Install
+*******************
+1. Anda bisa melakukan clone / download https://github.com/billyrefanto/CodeIgniter_Data_Mahasiswa.git
+2. Simpan pada folder htdoc
+3. Kemudian run xampp start apache server 
+4. Ketikan di browser anda localhost/
+
+*******************
 Release Information
 *******************
 
