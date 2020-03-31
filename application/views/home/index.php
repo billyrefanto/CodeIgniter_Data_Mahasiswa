@@ -8,12 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Billy | 6706194041</title>
   </head>
   <body>
-    <h1>Selamat datang di kelas D3RPLA-43-01</h1>
-    <h4>Klik text Mahasiswa untuk melihat data mahasiswa 43-01</h4>
-    <a class="nav-item nav-link" href="<?= base_url(); ?>mahasiswa" >Mahasiswa</a>
+    <div class="container">
+      <h1>Selamat datang di kelas D3RPLA-43-01</h1>
+      <h4>Klik text Mahasiswa untuk melihat data mahasiswa 43-01</h4>
+      <a class="nav-item nav-link" href="<?= base_url(); ?>mahasiswa" >Mahasiswa</a>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -44,7 +44,25 @@ th{
     <a href="<?= base_url(); ?>mahasiswa/tambah" class="btn btn-primary">Tambah mahasiswa</a>
   </div>
 </div>
-<h1 class="text-justify" id="mahasiswa">Data Mahasiswa D3RPLA-43-01</h1>
+
+<div class="row mt-3">
+    <div class="col-md-6">
+      <form action="" method="post">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Cari nama mahasiswa..." name="keyword">
+          <div class="input-group-append">
+              <button class="btn btn-primary" type="button">Cari</button>
+          </div>
+      </div>
+      </form>
+    </div>
+</div>
+<h3 class="text-justify" id="mahasiswa">Data Mahasiswa D3RPLA-43-01</h3>
+<?php if ( empty($mahasiswa) ) :  ?>
+  <div class="alert alert-danger" role="alert">
+    Data mahasiswa tidak ditemukan!
+  </div>
+<?php endif ?>
 <table class="table">
     <tr>
       <th scope="col">Id</th>
@@ -57,13 +75,13 @@ th{
     <?php foreach ($mahasiswa as $mhs) : ?>
     <tr>
       <th scope="row"><?= $mhs['id'] ?></th>
-      <th scope="row"> <img src="<?php echo base_url(); ?>assets/foto/" width="150" height="150" alt="Foto mahasiswa"></th>
+      <td scope="row"><img src="<?= base_url() ?>assets/images/avatar.png"  width="150" height="150"></td>
       <td scope="row"><?= $mhs['nama'] ?></td>
       <td scope="row"><?= $mhs['nim'] ?></td>
       <td scope="row"><?= $mhs['email'] ?></td>
       <td scope="row">
-        <a href="<?= base_url(); ?>mahasiswa/edit/<?= $mhs['id'];?>" class="badge badge-succes">Edit</a>
-        <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['id'];?>" class="badge badge-danger" onclick="return confirm('Apakah anda yakin?');">hapus</a>
+        <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mhs['id'];?>" class="badge badge-success">ubah</a>
+        <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['id'];?>" class="badge badge-danger float-right" onclick="return confirm('Apakah anda yakin?');">hapus</a>
       </td>
     </tr>
     <?php endforeach ?>
