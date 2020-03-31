@@ -12,6 +12,9 @@ class Mahasiswa extends CI_Controller{
         $data['judul'] = 'Daftar Mahasiswa 43-01';
 
         $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
+        if( $this->input->post('keyword') ){
+            $data['mahasiswa'] = $this->Mahasiswa_model->cariDataMahasiswa();
+        }
         $this->load->view('templates/header' , $data);
         $this->load->view('mahasiswa/index', $data);
         $this->load->view('templates/footer');
@@ -24,7 +27,7 @@ class Mahasiswa extends CI_Controller{
         $this->form_validation->set_rules('nama','Nama','required');
         $this->form_validation->set_rules('nim','NIM','required|numeric');
         $this->form_validation->set_rules('email','Email','required|valid_email');
-        $this->form_validation->set_rules('image','Foto','required');
+        $this->form_validation->set_rules('image','Foto');
 
         if($this->form_validation->run() == FALSE){
             $this->load->view('templates/header' , $data);
@@ -35,13 +38,33 @@ class Mahasiswa extends CI_Controller{
             $this->session->set_flashdata('flash','Ditambahkan');
             redirect('mahasiswa');
         }
-
     }
     public function hapus($id){
         $this->Mahasiswa_model->hapusDataMahasiswa($id);
         $this->session->set_flashdata('flash','Dihapus');
         redirect('mahasiswa');
     }
+    public function ubah($id){
+
+        $data['judul'] = 'Ubah | 6706194041';
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($id);
+
+        $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('nim','NIM','required|numeric');
+        $this->form_validation->set_rules('email','Email','required|valid_email');
+        $this->form_validation->set_rules('image','Foto' );
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/header' , $data);
+            $this->load->view('mahasiswa/ubah',$data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->Mahasiswa_model->tambahDataMahasiswa();
+            $this->session->set_flashdata('flash','Diubah');
+            redirect('mahasiswa');
+        }
+    }
+   
 }
 
 ?>
